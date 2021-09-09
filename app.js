@@ -104,6 +104,8 @@ const onGalleryElementClick = function (e) {
     refs.modalImgRef.src = e.target.dataset.source;
 
     document.addEventListener('keydown', onBtnPressed);
+    refs.closeBtnRef.addEventListener('click', oncloseBtnClick);
+    refs.overlayRef.addEventListener('click', onOverlayClick);
 };
 
 const PreventLinkOpening = function (links) {
@@ -115,6 +117,8 @@ const closeModal = function () {
     refs.modalImgRef.src = '';
 
     document.removeEventListener('keydown', onBtnPressed);
+    refs.closeBtnRef.removeEventListener('click', oncloseBtnClick);
+    refs.overlayRef.removeEventListener('click', onOverlayClick);
 };
 
 const oncloseBtnClick = function () {
@@ -168,6 +172,5 @@ const galleryLinksRef = document.querySelectorAll('a.gallery__link');
 PreventLinkOpening(galleryLinksRef);
 
 refs.galleryRef.addEventListener('click', onGalleryElementClick);
-refs.closeBtnRef.addEventListener('click', oncloseBtnClick);
 
-refs.overlayRef.addEventListener('click', onOverlayClick);
+
